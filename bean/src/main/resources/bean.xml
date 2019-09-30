@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--方式一：普通方式
+    <bean id="accountService" class="cn.ldp.service.AccountServiceImpl"/>
+    -->
+    <!--方式二：实例工厂
+    <bean id="instanceFactory" class="cn.ldp.factory.InstanceFactory"/>
+    <bean id="accountService" factory-bean="instanceFactory" factory-method="getAccountService"/>
+    -->
+    <!--方式三：静态工厂
+    <bean id="accountService" class="cn.ldp.factory.StaticFactory" factory-method="getAccountService"/>
+    -->
+    <!--bean的生命周期:单例
+    <bean id="accountService" class="cn.ldp.service.AccountServiceImpl" scope="singleton" init-method="init" destroy-method="destroy"/>-->
+    <!--bean的生命周期:多例-->
+    <bean id="accountService" class="cn.ldp.service.AccountServiceImpl" scope="prototype" init-method="init" destroy-method="destroy"/>
+</beans>

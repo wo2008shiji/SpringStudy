@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="accountService" class="cn.ldp.service.AccountServiceImpl">
+        <constructor-arg name="name" value="张三"/>
+        <constructor-arg name="age" value="18"/>
+        <constructor-arg name="birthday" ref="now"/>
+    </bean>
+    <bean id="accountService1" class="cn.ldp.service.AccountServiceImpl1">
+        <property name="name" value="张三"/>
+        <property name="age" value="17"/>
+        <property name="birthday" ref="now"/>
+    </bean>
+    <bean id="accountService2" class="cn.ldp.service.AccountServiceImpl2">
+        <property name="myStrs">
+            <array value-type="java.lang.String">
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </array>
+        </property>
+        <property name="myList">
+            <list>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </list>
+        </property>
+        <property name="mySet">
+            <set>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </set>
+        </property>
+        <property name="myMap">
+            <map>
+                <entry key="aaa" value="AAA"/>
+                <entry key="bbb">
+                    <value>BBB</value>
+                </entry>
+                <entry key="ccc" value="CCC"/>
+            </map>
+        </property>
+        <property name="myProps">
+            <props>
+                <prop key="aaa">AAA</prop>
+                <prop key="bbb">BBB</prop>
+                <prop key="ccc">CCC</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="now" class="java.util.Date"/>
+</beans>

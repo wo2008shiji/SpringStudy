@@ -1,0 +1,6 @@
+# Project exclude paths
+/bean/target/
+/DI/target/
+/factory/target/
+/jdbc/target/
+/spring/target/
